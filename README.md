@@ -14,9 +14,14 @@ Package users will still need to install node itself.
         #' @import rnodejs
         my_r_fn = node_fn("module", "command") # 'command optional, e.g. ("dat", "init")
 
+-    Add the following to your package's `.onAttach()`:
+
+        check_node_installed()
+        check_node_fn_deps("nodemodule", r_package="yourpackagename")
+
 -   Pass command line arguments
 
-        my_r_fn(file="foo.txt") # equivalent to `module command --file="foo.txt"
+        my_r_fn(file="foo.txt") # equivalent to `module command --file="foo.txt"`
 
 -   By default, `my_r_fn()` will return a list of output (0/1), `stdout` and `stderr`
 
