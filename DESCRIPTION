@@ -1,0 +1,16 @@
+Package: rnodejs
+Type: Package
+Title: An R wrapper for node.js
+Version: 0.0.1
+Date: 2014-08-22
+Author: Noam Ross
+Maintainer: Noam Ross <noam.ross@gmail.com>
+Imports:
+    jsonlite,
+    stringi
+Description: This package is designed as a helper for other packages that wrap
+    node.js modules.  It checks for and installs node.js and module
+    dependencies, allowing authors to include node modules in the package but
+    not manage dependencies, especially binaries which can not be included on
+    CRAN.
+License: MIT
