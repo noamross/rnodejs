@@ -1,5 +1,7 @@
 # rnodejs - A convenience package for wrapping node.js modules
 
+*this package is pre-alpha*
+
 This package is a tool for wrapping [node.js](http://nodejs.org/) modules inside R packages.  Node
 modules are included in the R package itself, and rnodejs will install dependencies in the R package
 directory, including binary dependencies that can not be hosted on CRAN.
