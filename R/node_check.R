@@ -113,3 +113,9 @@ node_deps_installed = function(nodepackage_path) {
   }
   return(TRUE)
 }
+
+#' @import Rcurl
+npm_connected = function() {
+  out = try(RCurl::getURL('https://registry.npmjs.org/'), silent=TRUE)
+  if(class(out) == "character") return(TRUE) else return(FALSE)
+}
