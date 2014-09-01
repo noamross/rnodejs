@@ -4,7 +4,7 @@
 \title{Create a function to call a wrapped node.js package}
 \usage{
 node_fn(node_package, node_cmd = "", node_bin = node_package,
-  node_dir = "node", r_package = environmentName(parent.frame()),
+  r_package = environmentName(parent.frame()), node_dir = "node",
   return_list = TRUE, ...)
 }
 \arguments{

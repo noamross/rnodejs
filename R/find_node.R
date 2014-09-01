@@ -9,6 +9,7 @@
 .node$npm <- NULL
 .node$npm_ver <- NULL
 .node$messages <- character()
+.node$deps <- FALSE
 
 # get the node binary
 node <- function() {

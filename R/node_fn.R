@@ -26,21 +26,19 @@
 #'                    
 #' @import jsonlite
 #' @export 
-node_fn = function(node_package,  node_cmd="", node_bin = node_package,
-                        node_dir = "node", r_package  = environmentName(parent.frame()),
-                        return_list = TRUE, ...) {
-#  if(is.null(r_package)) r_package = environmentName(parent.frame())
+node_fn = function(node_package, node_cmd="", node_bin = node_package,
+                        r_package  = environmentName(parent.frame()),
+                        node_dir = "node", return_list = TRUE, ...) {
+
   nodepath = system.file(node_dir, package=r_package)
   nodepackage_path = file.path(nodepath, node_package)
+  if(!check_node_deps(node_package, r_package, node_dir)) {
+    stop(paste0(r_package, "node dependencies not installed."))
+  }
   package.json = file.path(nodepackage_path, "package.json")
   if(!file.exists(package.json)) {
-    nodepackage_path = list.files(path=nodepath, pattern=node_package, 
-                                  recursive=TRUE, include.dirs=TRUE)
-    package.json = file.path(nodepath, nodepackage_path,"package.json")
-    if(!file.exists(package.json)) {
-      stop("Node package '", node_package, "' not found in R package '",
-            r_package, "' under directory '", node_dir, "'.")
-    }
+    stop("Node package '", node_package, "' not found in R package '",
+         r_package, "' under directory '", node_dir, "'.")
   }
   package.data = fromJSON(package.json)
   package_name = package.data$name
@@ -64,6 +62,7 @@ node_fn = function(node_package,  node_cmd="", node_bin = node_package,
      }
      return(out)
       }
+  
   return(fn)
   }
 
