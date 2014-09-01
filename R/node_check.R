@@ -53,6 +53,7 @@ check_node_deps = function(node_package, r_package, node_dir="node") {
 
 node_deps_update = function(nodepackage_path, verbose=FALSE) {
   if(!npm_connected()) stop("Cannot reach https://registry.npmjs.org/ to update dependencies")
+  message("Updating node module dependencies")
   if(!verbose) {
     npm_out=system3(npm(), args=paste0("update --prefix ", nodepackage_path))
     npm_out=system3(npm(), args=paste0("update --prefix ", nodepackage_path))
@@ -70,6 +71,7 @@ npm_uptodate = function(nodepackage_path) {
   if(!npm_connected()) {
     stop("Cannot reach https://registry.npmjs.org/ to check dependencies")
   }
+  message("Checking node module depencies online")
   out = system3(npm(), args=paste0("outdated --prefix ", nodepackage_path))
   out = stri_replace_all_fixed(out$stdout, " > ", ">")
   out = stri_replace_all_regex(out, "[^\\S\\n]+", ",")
