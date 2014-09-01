@@ -49,7 +49,7 @@ find_node <- function() {
     
     versions_npm <- lapply(sources_npm, function(src) {
       if (file.exists(src))
-        get_node_version(src)
+        get_npm_version(src)
       else
         numeric_version("0")
     })    
@@ -95,7 +95,7 @@ get_node_version <- function(node_dir) {
 }
 
 get_npm_version <- function(npm_dir) {
-  node_path <- file.path(node_dir, "npm")
+  node_path <- file.path(npm_dir, "npm")
   version_info <- system(paste(shQuote(node_path), "--version"),
                            intern = TRUE)
   numeric_version(version)

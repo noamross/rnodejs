@@ -8,7 +8,7 @@
 #' failure), \code{stdout}, and \code{stderr} from the node command.
 #' 
 #' @param node_package the directory name of the node package
-#' @param the 'bin' command of the node package.  Defaults to the package name
+#' @param node_bin the 'bin' command of the node package.  Defaults to the package name
 #' @param node_dir the directory where node packages are kept.  Defaults to
 #'                 'node', which should be a directory under 'inst' when
 #'                 creaing your own package.
