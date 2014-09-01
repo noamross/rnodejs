@@ -14,4 +14,4 @@ Description: This package is designed as a helper for other packages that wrap
     dependencies, allowing authors to include node modules in the package but
     not manage dependencies, especially binaries which can not be included on
     CRAN.
-License: MIT
+License: MIT + LICENSE

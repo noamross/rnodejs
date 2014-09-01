@@ -80,7 +80,7 @@ find_node <- function() {
       .node$dir <- found_src
       .node$npm <- found_npm
       .node$version <- found_ver
-      .node$npmver <- found_npmver
+      .node$npm_ver <- found_npmver
     }
   }
 }
@@ -94,7 +94,7 @@ get_node_version <- function(node_dir) {
   numeric_version(version)
 }
 
-get_npm_version <- function(npm_dir) {
+get_npm_version <- function(node_dir) {
   node_path <- file.path(node_dir, "npm")
   version_info <- system(paste(shQuote(node_path), "--version"),
                            intern = TRUE)
